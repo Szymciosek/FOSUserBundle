@@ -35,11 +35,21 @@ class TokenGenerator implements TokenGeneratorInterface
         }
     }
 
+    /**
+     * Generates a random token.
+     * 
+     * @return string
+     */
     public function generateToken()
     {
         return rtrim(strtr(base64_encode($this->getRandomNumber()), '+/', '-_'), '=');
     }
 
+    /**
+     * Returns a string with random numbers.
+     * 
+     * @return string
+     */
     private function getRandomNumber()
     {
         $nbBytes = 32;
